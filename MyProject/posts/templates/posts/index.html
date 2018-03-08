@@ -7,4 +7,5 @@
             <li class="collection-item"><a href="/posts/details/{{post.id}}">{{post.title}}</a></li>
         {% endfor %}
     </ul>
+    <a href="{% url 'bloginput' %}" class="btn">Enter new blog</a>
 {% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	
+	{% if user.is_authenticated %}
+	
+	<p>You are logged in</p>
+	<p>Hey there {{ user.username}}, Howdy</p>
+	<p>
+		<a href="{% url 'logout' %}">Logout</a> here</p>
+	{% else %}
+	<p>You are not logged in</p>
+	<p>Please
+		<a href="{% url 'login' %}">Login</a> here </p>
+	{% endif %}
+
+
+	{% for arti in object_list %}
+
+	<div class = "article">
+
+		<h3> <a href="{% url 'article_page' arti.pk %}">{{ arti.title }}</a> </h3>
+
+		<p>{{ arti.text }}</p>
+
+	</div>
+
+	{% endfor %}
+
+{% endblock %}
